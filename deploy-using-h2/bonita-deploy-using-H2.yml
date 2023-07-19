@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  bonita-deployment
+  namespace: bonita
+  labels:
+    app:  bonita
+spec:
+  selector:
+    matchLabels:
+      app: bonita
+  replicas: 1
+  strategy:
+    rollingUpdate: 
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app:  bonita
+    spec:
+      containers:
+      - name:  bonita
+        image:  bonita:latest
+        envFrom:
+        - configMapRef:
+            name: bonita-config
+        ports:
+        - containerPort: 8080
+         

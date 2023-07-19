@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+  namespace: bonita
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: postgres
+          image: bonitasoft/bonita-postgres:12.6
+          ports:
+            - containerPort: 5432
+          env:
+           # - name: POSTGRES_USER
+            #  value: bonita
+            - name: POSTGRES_PASSWORD
+              value: bonita
+            #- name: POSTGRES_DB
+             # value: bonita
+         

@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  bonita-deployment-using-postgresql
+  namespace: bonita
+  labels:
+    app:  bonita
+spec:
+  selector:
+    matchLabels:
+      app: bonita
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app:  bonita
+    spec:
+      #restartPolicy: OnFailure
+      containers:
+      - name:  bonita
+        image:  bonita:7.14.0
+        ports:
+          - containerPort: 8080
+        env:
+          - name: DB_VENDOR
+            value: postgres
+          - name: DB_PORT
+            value: "5432"
+          - name: DB_HOST
+            value: postgres-service
+          - name: DB_NAME
+            value: bonita
+          - name: DB_USER
+            value: bonita
+          - name: DB_PASS
+            value: bpm
+          - name: BIZ_DB_NAME
+            value:  business_data
+          - name: BIZ_DB_USER
+            value: business_data
+          - name: BIZ_DB_PASS
+            value: bpm
+          - name: TENANT_LOGIN
+            value: tech_user
+          - name: TENANT_PASSWORD
+            value: secret
+          - name: PLATFORM_LOGIN
+            value: pfadmin
+          - name: PLATFORM_PASSWORD
+            value: pfsecret
+         
