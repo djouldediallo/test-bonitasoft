@@ -1,9 +1,7 @@
 resources:
-
   - bonita-nspace.yml
- #- bonita-deploy.yml
- #- bonita-service.yml
   - bonita-deploy-using-postgres.yml
   - bonita-postgres-deploy.yml
   - bonita-service-postgres.yml
   - bonita-service-using-postgres.yml
+  

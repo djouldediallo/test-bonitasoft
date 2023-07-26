@@ -22,10 +22,5 @@ spec:
           ports:
             - containerPort: 5432
           env:
-           # - name: POSTGRES_USER
-            #  value: bonita
             - name: POSTGRES_PASSWORD
               value: bonita
-            #- name: POSTGRES_DB
-             # value: bonita
-         

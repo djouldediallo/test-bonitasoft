@@ -2,12 +2,11 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: bonita-config
-  namespace: prod
+  namespace: bonita
 data:
-	 DB_VENDOR: h2
-	 DB_NAME: bonitadb
-	 DB_USER: bonitauser
-	 DB_PASS: bonitapass
-	 TENANT_LOGIN: bonita
-	 TENANT_PASSWORD: bonitalogin
-	 
+  DB_VENDOR: h2
+  DB_NAME: bonitadb
+  DB_USER: bonitauser
+  DB_PASS: bonitapass
+  TENANT_LOGIN: bonita
+  TENANT_PASSWORD: bonitalogin

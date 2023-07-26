@@ -1,0 +1,5 @@
+resources:
+  - bonita-nspace.yml
+  - bonita-deploy-using-H2.yml
+  - bonita-configmap.yml
+  - bonita-service-using-H2.yml

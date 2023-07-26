@@ -20,7 +20,6 @@ spec:
       labels:
         app:  bonita
     spec:
-      #restartPolicy: OnFailure
       containers:
       - name:  bonita
         image:  bonita:7.14.0
